@@ -223,7 +223,7 @@ const ProductTemplate = ({ data, location }) => {
                 id="size"
                 style={{ padding: 8, width: "100%" }}
                 value={customValue}
-                onChange={e => setCustomValue(e.target.value)}
+                onBlur={e => setCustomValue(e.target.value)}
               >
                 {data.prismicProducts.data.product_size_variants.map(
                   variant => {

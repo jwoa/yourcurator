@@ -14,7 +14,7 @@ const useDetectOutsideClick = (ref, setDropdown) => {
     return () => {
       document.removeEventListener("click", clickListener)
     }
-  }, [ref])
+  }, [ref, clickListener])
 }
 
 export default useDetectOutsideClick
