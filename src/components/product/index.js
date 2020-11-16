@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import createStringVariants from "../../utils/createStringVariants"
 import calculateDiscount from "../../utils/calculateDiscount"
 import useTagSearch from "../../hooks/useTagSearch"
 import TagSearch from "../../components/tagSearch/index"
@@ -33,7 +32,6 @@ const Product = () => {
             uid
             data {
               product_price
-              product_discount_price
               product_tag
               product_id
               product_title {
@@ -41,12 +39,6 @@ const Product = () => {
               }
               product_description {
                 text
-              }
-              product_size_variants {
-                price
-                size {
-                  text
-                }
               }
               stock
               product_category {
@@ -100,21 +92,12 @@ const Product = () => {
           .map(({ node }) => {
             return (
               <Link
+                to='#'
                 to={`/${node.data.product_category.uid}/${node.uid}`}
                 key={node.uid}
                 style={{ textDecoration: "none" }}
               >
                 <div style={{ fontFamily: "Roboto" }}>
-                  <p
-                    style={{
-                      padding: 6,
-                      backgroundColor: "#FF5678",
-                      color: "white",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {node.data.product_tag}
-                  </p>
                   <div style={{ position: "relative" }}>
                     {node.data.stock === false ? (
                       <div
@@ -159,31 +142,20 @@ const Product = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "space-between",
+                      justifyContent: "center",
                     }}
                   >
-                    <h3 style={{ color: "#1A1B1D", marginTop: 16 }}>
+                    <h3 style={{ color: "#FFF", marginTop: 16 }}>
                       {node.data.product_title.text}
                     </h3>
-                    {node.data.product_discount_price && (
-                      <p
-                        style={{
-                          marginBottom: 0,
-                          color: "#C62927",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        -{node.data.product_discount_price}%
-                      </p>
-                    )}
                   </div>
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
                     <p
                       style={{
                         color: `${
                           node.data.product_discount_price
-                            ? "#C62927"
-                            : "#1A1B1D"
+                            ? "#FFF"
+                            : "#FFF"
                         }`,
                         textDecoration: `${
                           node.data.product_discount_price && "line-through"
@@ -191,9 +163,10 @@ const Product = () => {
                         marginRight: `${
                           node.data.product_discount_price && "12px"
                         }`,
+                        fontWeight: "bold"
                       }}
                     >
-                      {node.data.product_price}€
+                      ${node.data.product_price}
                     </p>
                     {node.data.product_discount_price && (
                       <p style={{ color: "#1A1B1D", fontWeight: "bold" }}>
@@ -205,7 +178,7 @@ const Product = () => {
                       </p>
                     )}
                   </div>
-                  <div
+                  {/* <div
                     style={{
                       display: "grid",
                       gridTemplateColumns: "auto  auto",
@@ -245,30 +218,12 @@ const Product = () => {
                           .childImageSharp.fluid.src
                       }
                       itemName={node.data.product_title.text}
-                      customName={
-                        node.data.product_size_variants.length ? "Size" : null
-                      }
-                      customOptions={createStringVariants(
-                        node.data.product_size_variants
-                      )}
                       inStock={!node.data.stock}
                     >
                       Add to Cart
                     </SnipcartBtn>
-                  </div>
-                  {node.data.product_size_variants.length ? (
-                    <p
-                      style={{
-                        textAlign: "center",
-                        fontSize: 12,
-                        marginTop: 8,
-                        marginBottom: 0,
-                        color: "black",
-                      }}
-                    >
-                      This product has multiple variants.
-                    </p>
-                  ) : null}
+                  </div> */}
+
                 </div>
               </Link>
             )

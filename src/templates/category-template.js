@@ -202,20 +202,20 @@ const CategoryTemplates = ({ data }) => {
                           .localFile.childImageSharp.fluid.src
                       }
                       itemName={product.document.data.product_title.text}
-                      customName={
-                        product.document.data.product_size_variants.length
-                          ? "Size"
-                          : null
-                      }
-                      customOptions={createStringVariants(
-                        product.document.data.product_size_variants
-                      )}
+                      // customName={
+                      //   product.document.data.product_size_variants.length
+                      //     ? "Size"
+                      //     : null
+                      // }
+                      // customOptions={createStringVariants(
+                      //   product.document.data.product_size_variants
+                      // )}
                       inStock={!product.document.data.stock}
                     >
                       Add to Cart
                     </SnipcartBtn>
                   </div>
-                  {product.document.data.product_size_variants.length ? (
+                  {/* {product.document.data.product_size_variants.length ? (
                     <p
                       style={{
                         textAlign: "center",
@@ -227,7 +227,7 @@ const CategoryTemplates = ({ data }) => {
                     >
                       This product has multiple variants.
                     </p>
-                  ) : null}
+                  ) : null} */}
                 </div>
               </Link>
             )
@@ -255,7 +255,6 @@ export const pageQuery = graphql`
                     data {
                       stock
                       product_price
-                      product_discount_price
                       product_tag
                       product_id
                       product_title {
@@ -266,12 +265,6 @@ export const pageQuery = graphql`
                       }
                       product_title {
                         text
-                      }
-                      product_size_variants {
-                        price
-                        size {
-                          text
-                        }
                       }
                       body {
                         __typename

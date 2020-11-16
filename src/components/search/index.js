@@ -52,7 +52,6 @@ const Search = () => {
                 text
               }
               product_price
-              product_discount_price
               product_category {
                 uid
                 document {
@@ -125,7 +124,7 @@ const Search = () => {
                                 marginBottom: 0,
                               }}
                             >
-                              {node.data.product_price}€
+                              {node.data.product_price}$
                             </p>
                             {node.data.product_discount_price && (
                               <p
@@ -135,7 +134,7 @@ const Search = () => {
                                   marginBottom: 0,
                                 }}
                               >
-                                {node.data.product_discount_price}€
+                                {node.data.product_discount_price}$
                               </p>
                             )}
                           </div>

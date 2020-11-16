@@ -113,11 +113,11 @@ const RecommendedProducts = ({ products }) => {
                         }`,
                       }}
                     >
-                      {node.data.product_price}€
+                      {node.data.product_price}$
                     </p>
                     {node.data.product_discount_price && (
                       <p style={{ color: "#1A1B1D", fontWeight: "bold" }}>
-                        {node.data.product_discount_price}€
+                        {node.data.product_discount_price}$
                       </p>
                     )}
                   </div>

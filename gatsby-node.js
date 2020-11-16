@@ -17,6 +17,30 @@ const makeRequest = (graphql, request) =>
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  const getPages = makeRequest(
+    graphql,
+    `
+    {
+      allPrismicPages {
+        edges {
+          node {
+            uid
+          }
+        }
+      }
+    }
+  `
+  ).then(result => {
+    const pages = result.data.allPrismicPages.edges
+    pages.forEach(({ node }, index) => {
+      createPage({
+        path: `/${node.uid}`,
+        component: path.resolve(`./src/templates/page-template.js`),
+        context: { uid: node.uid },
+      })
+    })
+  })
+
   const getProducts = makeRequest(
     graphql,
     `
@@ -70,5 +94,5 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  return Promise.all([getProducts, getCategories])
+  return Promise.all([getPages, getProducts, getCategories])
 }

@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { FaHeart } from 'react-icons/fa';
 
 import Header from "./header"
 import "./layout.css"
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 1158,
+          // maxWidth: 1158,
           padding: `24px`,
         }}
       >
@@ -30,12 +31,14 @@ const Layout = ({ children }) => {
         <footer
           style={{
             marginTop: `2rem`,
+            textAlign: `center`,
+            fontSize: `10px`
           }}
         >
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built with <FaHeart />
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a> by{" "}
-          <a href="https://igordumencic.com">Igor Dumencic</a>
+          by{" "}
+          <a href="https://seasonsix.co">S6</a>
         </footer>
       </div>
     </>

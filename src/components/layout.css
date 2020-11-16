@@ -9,7 +9,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
+  background-color: #000;
+  color: #fff;
+  /* color: hsla(0, 0%, 0%, 0.8); */
   font-family: "Arial", sans-serif;
   font-weight: normal;
   word-wrap: break-word;

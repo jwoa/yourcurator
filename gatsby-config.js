@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Prismic & Snipcart`,
+    title: `Your Curator`,
     description: `Prismic and Snipcart demo store example.`,
-    author: `@igordumencic`,
+    author: `@jasonwoa`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,6 +19,8 @@ module.exports = {
         repositoryName: `yourcurator`,
         accessToken: `MC5YNjMxZFJNQUFDSUFEaU5P.fO-_ve-_ve-_ve-_ve-_ve-_ve-_ve-_ve-_vVbvv73vv73vv73vv73vv71r77-977-977-977-977-9Pe-_vXPvv73vv71w77-9NO-_vXc`,
         schemas: {
+          homepage: require("./src/schemas/homepage.json"),
+          pages: require("./src/schemas/pages.json"),
           products: require("./src/schemas/products.json"),
           categories: require("./src/schemas/categories.json"),
           header_promotion: require("./src/schemas/header_promotion.json"),

@@ -33,12 +33,6 @@
         "label" : "Product Price"
       }
     },
-    "product_discount_price" : {
-      "type" : "Number",
-      "config" : {
-        "label" : "Product Discount Price"
-      }
-    },
     "product_tag" : {
       "type" : "Select",
       "config" : {
@@ -61,50 +55,6 @@
         "placeholder_true" : "In stock",
         "default_value" : true,
         "label" : "Stock"
-      }
-    },
-    "product_size_variants" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "size" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label" : "Size"
-            }
-          },
-          "price" : {
-            "type" : "Number",
-            "config" : {
-              "label" : "Price",
-              "min" : -100,
-              "max" : 100
-            }
-          }
-        },
-        "label" : "Product Size Variants"
-      }
-    },
-    "product_color_variants" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "color" : {
-            "type" : "Color",
-            "config" : {
-              "label" : "Color"
-            }
-          },
-          "product_link" : {
-            "type" : "StructuredText",
-            "config" : {
-              "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-              "label" : "Product Link"
-            }
-          }
-        },
-        "label" : "Product Color Variants"
       }
     },
     "body" : {
