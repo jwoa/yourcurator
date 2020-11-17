@@ -38,7 +38,8 @@ const RecommendedProducts = ({ products }) => {
           {products.edges.map(({ node }) => {
             return (
               <Link
-                to={`/${node.data.product_category.uid}/${node.uid}`}
+                to={`/shop/${node.uid}`}
+                // to={`/${node.data.product_category.uid}/${node.uid}`}
                 key={node.uid}
                 style={{ textDecoration: "none" }}
               >
@@ -94,7 +95,7 @@ const RecommendedProducts = ({ products }) => {
                       }
                     />
                   </div>
-                  <h3 style={{ color: "#1A1B1D", marginTop: 16 }}>
+                  <h3 style={{ color: "#FFF", marginTop: 16 }}>
                     {node.data.product_title.text}
                   </h3>
                   <div style={{ display: "flex" }}>
@@ -102,8 +103,8 @@ const RecommendedProducts = ({ products }) => {
                       style={{
                         color: `${
                           node.data.product_discount_price
-                            ? "#C62927"
-                            : "#1A1B1D"
+                            ? "#FFF"
+                            : "#FFF"
                         }`,
                         textDecoration: `${
                           node.data.product_discount_price && "line-through"
@@ -113,10 +114,10 @@ const RecommendedProducts = ({ products }) => {
                         }`,
                       }}
                     >
-                      {node.data.product_price}$
+                      ${node.data.product_price}
                     </p>
                     {node.data.product_discount_price && (
-                      <p style={{ color: "#1A1B1D", fontWeight: "bold" }}>
+                      <p style={{ color: "#FFF", fontWeight: "bold" }}>
                         {node.data.product_discount_price}$
                       </p>
                     )}
@@ -127,8 +128,8 @@ const RecommendedProducts = ({ products }) => {
                       width: "100%",
                       cursor: "pointer",
                       padding: 12,
-                      backgroundColor: "#581A45",
-                      color: "white",
+                      backgroundColor: "#fff",
+                      color: "#000",
                       borderRadius: 4,
                       border: "none",
                     }}

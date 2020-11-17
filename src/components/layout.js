@@ -35,10 +35,7 @@ const Layout = ({ children }) => {
             fontSize: `10px`
           }}
         >
-          © {new Date().getFullYear()}, Built with <FaHeart />
-          {` `}
-          by{" "}
-          <a href="https://seasonsix.co">S6</a>
+          © Your Curator {new Date().getFullYear()}, <FaHeart />
         </footer>
       </div>
     </>

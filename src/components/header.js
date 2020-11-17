@@ -18,11 +18,13 @@ const Navigation = styled.div`
 const Menu = styled.div`
   display: flex;
   flex-wrap: wrap;
-
+  margin-left: -100px;
   a {
     color: #FFF;
     text-decoration: none;
+    text-transform: uppercase;
     padding: 17px;
+    font-weight: bold;
   }
 `
 
@@ -52,7 +54,7 @@ const Header = ({ siteTitle }) => {
         // background: `#A170D5`,
         // marginBottom: `1.45rem`,
         margin: `0 auto`,
-        maxWidth: 1158,
+        // maxWidth: 1158,
         padding: `1.45rem 1.0875rem`,
         display: 'inline-flex',
         justifyContent: 'space-between',
@@ -61,7 +63,7 @@ const Header = ({ siteTitle }) => {
       }}
     >
       {/* <HeaderPromotionBar /> */}
-        <h1 style={{ margin: 0, fontSize: 20, textTransform: "uppercase" }}>
+        {/* <h1 style={{ margin: 0, fontSize: 20, textTransform: "uppercase" }}> */}
           <Link
             to="/"
             style={{
@@ -69,9 +71,10 @@ const Header = ({ siteTitle }) => {
               textDecoration: `none`,
             }}
           >
-            {siteTitle}
+            {/* {siteTitle} */}
+            <img src="https://yourcurator.shop/assets/images/logo.png" width="200px" style={{marginBottom: 0}}/>
           </Link>
-        </h1>
+        {/* </h1> */}
         {/* <Search /> */}
         <Navigation>
           <Menu>
@@ -88,7 +91,7 @@ const Header = ({ siteTitle }) => {
               {state.cartQuantity}
               <FaShoppingCart 
                 className="snipcart-checkout" 
-                style={{ color: "white", marginRight: 16 }}
+                style={{ color: "white", marginRight: 10, marginLeft: 10 }}
               />
             </Link>
     </header>

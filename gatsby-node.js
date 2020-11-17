@@ -63,7 +63,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const products = result.data.allPrismicProducts.edges
     products.forEach(({ node }, index) => {
       createPage({
-        path: `/${node.data.product_category.uid}/${node.uid}`,
+        // path: `/${node.data.product_category.uid}/${node.uid}`,
+        path: `/shop/${node.uid}`,
         component: path.resolve(`./src/templates/product-template.js`),
         context: { uid: node.uid, category: node.data.product_category.uid },
       })

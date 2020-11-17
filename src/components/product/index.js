@@ -50,9 +50,10 @@ const Product = () => {
                   items {
                     gallery_image {
                       alt
+                      url
                       localFile {
                         childImageSharp {
-                          fluid(maxWidth: 300) {
+                          fluid(maxWidth: 2000) {
                             ...GatsbyImageSharpFluid
                           }
                         }
@@ -93,7 +94,8 @@ const Product = () => {
             return (
               <Link
                 to='#'
-                to={`/${node.data.product_category.uid}/${node.uid}`}
+                to={`/shop/${node.uid}`}
+                // to={`/${node.data.product_category.uid}/${node.uid}`}
                 key={node.uid}
                 style={{ textDecoration: "none" }}
               >
@@ -133,8 +135,8 @@ const Product = () => {
                       imgStyle={{ objectFit: "contain" }}
                       style={{ height: 300 }}
                       fluid={
-                        node.data.body[0].items[0].gallery_image.localFile
-                          .childImageSharp.fluid
+                        node.data.body[0].items[0].gallery_image.url
+                        // node.data.body[0].items[0].gallery_image.localFile.childImageSharp.fluid
                       }
                     />
                   </div>

@@ -25,9 +25,7 @@ const Homepage = () => {
             text
           }
           banner_background {
-            fluid {
-              src
-            }
+            url
           }
         }
       }
@@ -36,7 +34,7 @@ const Homepage = () => {
 return (
     <Wrapper>
       {/* <Text>{data.prismicHomepage.data.banner_title.text}</Text> */}
-      <img src={data.prismicHomepage.data.banner_background.fluid.src} />
+      <img src={data.prismicHomepage.data.banner_background.url} />
     </Wrapper>
   )
 }

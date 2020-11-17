@@ -95,14 +95,15 @@ const ProductTemplate = ({ data, location }) => {
             })}
           </div>
           <div>
+          {data.prismicProducts.data.body[0].items[active].gallery_image.localFile
+  && (
             <Img
               imgStyle={{ objectFit: "contain" }}
               style={{ height: 600 }}
               fluid={
-                data.prismicProducts.data.body[0].items[active].gallery_image
-                  .localFile.childImageSharp.fluid
-              }
-            />
+                data.prismicProducts.data.body[0].items[active].gallery_image.localFile.childImageSharp.fluid
+              }            />
+  )}
           </div>
         </Thumbnails>
         <div style={{ marginBottom: 24, fontFamily: "Roboto" }}>
@@ -156,7 +157,7 @@ const ProductTemplate = ({ data, location }) => {
               style={{
                 color: "#B93636",
                 textAlign: "center",
-                backgroundColor: "#FFD6D6",
+                backgroundColor: "#fff",
                 padding: 8,
                 borderRadius: 4,
               }}
@@ -186,11 +187,11 @@ const ProductTemplate = ({ data, location }) => {
             </SnipcartBtn>
           )}
 
-          <ul style={{ marginTop: 16 }}>
+          {/* <ul style={{ marginTop: 16 }}>
             <li>Free Return</li>
             <li>Secure Payments</li>
             <li>Free Shipping</li>
-          </ul>
+          </ul> */}
         </div>
       </ProductGrid>
       <RecommendedProducts products={data.allPrismicProducts} />
