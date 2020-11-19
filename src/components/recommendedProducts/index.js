@@ -44,7 +44,7 @@ const RecommendedProducts = ({ products }) => {
                 style={{ textDecoration: "none" }}
               >
                 <div style={{ marginBottom: 24, fontFamily: "Roboto" }}>
-                  <p
+                  {/* <p
                     style={{
                       padding: 6,
                       backgroundColor: "#FF5678",
@@ -53,7 +53,7 @@ const RecommendedProducts = ({ products }) => {
                     }}
                   >
                     {node.data.product_tag}
-                  </p>
+                  </p> */}
 
                   <div style={{ position: "relative" }}>
                     {node.data.stock === false ? (
@@ -95,23 +95,16 @@ const RecommendedProducts = ({ products }) => {
                       }
                     />
                   </div>
-                  <h3 style={{ color: "#FFF", marginTop: 16 }}>
+                  <h3 style={{ color: "#FFF", marginTop: 16, textAlign: "center" }}>
                     {node.data.product_title.text}
                   </h3>
-                  <div style={{ display: "flex" }}>
+                  <div style={{ display: "flex", justifyContent: "center" }}>
                     <p
                       style={{
-                        color: `${
-                          node.data.product_discount_price
-                            ? "#FFF"
-                            : "#FFF"
-                        }`,
-                        textDecoration: `${
-                          node.data.product_discount_price && "line-through"
-                        }`,
-                        marginRight: `${
-                          node.data.product_discount_price && "12px"
-                        }`,
+                        color: "#FFF",
+                        textDecoration: "none",
+                        marginRight: "12px",
+                        fontWeight: "bold"
                       }}
                     >
                       ${node.data.product_price}

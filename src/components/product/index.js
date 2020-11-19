@@ -1,11 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import styled from "styled-components"
 import calculateDiscount from "../../utils/calculateDiscount"
 import useTagSearch from "../../hooks/useTagSearch"
 import TagSearch from "../../components/tagSearch/index"
-import SnipcartBtn from "../../components/snipcartBtn/index"
+// import SnipcartBtn from "../../components/snipcartBtn/index"
 
 const Products = styled.div`
   display: grid;
@@ -51,13 +51,13 @@ const Product = () => {
                     gallery_image {
                       alt
                       url
-                      localFile {
-                        childImageSharp {
-                          fluid(maxWidth: 2000) {
-                            ...GatsbyImageSharpFluid
-                          }
-                        }
-                      }
+                      # localFile {
+                      #   childImageSharp {
+                      #     fluid(maxWidth: 2000) {
+                      #       ...GatsbyImageSharpFluid
+                      #     }
+                      #   }
+                      # }
                     }
                   }
                 }
@@ -93,7 +93,6 @@ const Product = () => {
           .map(({ node }) => {
             return (
               <Link
-                to='#'
                 to={`/shop/${node.uid}`}
                 // to={`/${node.data.product_category.uid}/${node.uid}`}
                 key={node.uid}
@@ -131,14 +130,14 @@ const Product = () => {
                       </div>
                     ) : null}
 
-                    <Img
+                    {/* <Img
                       imgStyle={{ objectFit: "contain" }}
                       style={{ height: 300 }}
-                      fluid={
-                        node.data.body[0].items[0].gallery_image.url
-                        // node.data.body[0].items[0].gallery_image.localFile.childImageSharp.fluid
+                      src={
+                        node.data.body[0].items[0].gallery_image.localFile.childImageSharp.fluid
                       }
-                    />
+                    /> */}
+                    <img src={node.data.body[0].items[0].gallery_image.url} alt="" />
                   </div>
                   <div
                     style={{

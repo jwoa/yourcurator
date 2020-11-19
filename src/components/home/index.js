@@ -8,13 +8,13 @@ const Wrapper = styled.div`
   text-align: center;
 `
 
-const Text = styled.p`
-  margin-bottom: 0;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
-`
+// const Text = styled.p`
+//   margin-bottom: 0;
+//   color: white;
+//   text-transform: uppercase;
+//   font-size: 14px;
+//   font-weight: bold;
+// `
 
 const Homepage = () => {
     const data = useStaticQuery(graphql`
@@ -33,8 +33,7 @@ const Homepage = () => {
   `);
 return (
     <Wrapper>
-      {/* <Text>{data.prismicHomepage.data.banner_title.text}</Text> */}
-      <img src={data.prismicHomepage.data.banner_background.url} />
+      <img src={data.prismicHomepage.data.banner_background.url} alt="A gem to be found"/>
     </Wrapper>
   )
 }

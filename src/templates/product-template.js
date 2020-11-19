@@ -1,14 +1,15 @@
 import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+// import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import createStringVariants from "../utils/createStringVariants"
-import updatePrice from "../utils/updatePrice"
+// import createStringVariants from "../utils/createStringVariants"
+// import updatePrice from "../utils/updatePrice"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SnipcartBtn from "../components/snipcartBtn/index"
-import RecommendedProducts from "../components/recommendedProducts/index"
-import Breadcrumbs from "../components/breadcrumb/index"
+// import RecommendedProducts from "../components/recommendedProducts/index"
+// import Breadcrumbs from "../components/breadcrumb/index"
 
 const Thumbnails = styled.div`
   display: grid;
@@ -31,9 +32,6 @@ const Thumbnails = styled.div`
 const ThumbnailWrapper = styled.div`
   border: ${props => (props.active ? "1px solid #D1D0D1" : "1px solid white")};
 
-  box-shadow: ${props =>
-    props.active ? "0px 4px 40px rgba(218, 218, 218, 0.5)" : null};
-
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 16px;
@@ -45,6 +43,7 @@ const ThumbnailWrapper = styled.div`
   }
 `
 
+// const Thumbnail = styled.img`
 const Thumbnail = styled(Img)`
   width: 50px;
   height: 50px;
@@ -65,11 +64,11 @@ const ProductGrid = styled.div`
 
 const ProductTemplate = ({ data, location }) => {
   const [active, setActive] = useState(0)
-  const [customValue, setCustomValue] = useState(
-    // data.prismicProducts.data.product_size_variants[0]?.size.text
-    ""
-  )
-  const [qty, setQty] = useState(1)
+  // const [customValue, setCustomValue] = useState(
+  //    data.prismicProducts.data.product_size_variants[0]?.size.text
+  //   ""
+  // )
+  // const [qty, setQty] = useState(1)
 
   return (
     <Layout>
@@ -87,28 +86,29 @@ const ProductTemplate = ({ data, location }) => {
                   }}
                   key={index}
                 >
-                  <Thumbnail
+                  {/* <Thumbnail
                     fixed={item.gallery_image.localFile.childImageSharp.fixed}
-                  />
+                    // src={item.gallery_image.localFile.url}
+                  /> */}
                 </ThumbnailWrapper>
               )
             })}
           </div>
           <div>
-          {data.prismicProducts.data.body[0].items[active].gallery_image.localFile
-  && (
             <Img
               imgStyle={{ objectFit: "contain" }}
               style={{ height: 600 }}
               fluid={
                 data.prismicProducts.data.body[0].items[active].gallery_image.localFile.childImageSharp.fluid
-              }            />
-  )}
+              }            
+            />
+              {/* <img src={data.prismicProducts.data.body[0].items[active].gallery_image.url} /> */}
+
           </div>
         </Thumbnails>
         <div style={{ marginBottom: 24, fontFamily: "Roboto" }}>
-          <Breadcrumbs pathname={location.pathname} />
-          <Link
+          {/* <Breadcrumbs pathname={location.pathname} /> */}
+          {/* <Link
             to={`/${data.prismicProducts.data.product_category.uid}`}
             style={{
               color: "inherit",
@@ -122,7 +122,7 @@ const ProductTemplate = ({ data, location }) => {
               data.prismicProducts.data.product_category.document.data
                 .category_name.text
             }
-          </Link>
+          </Link> */}
           <div
             style={{
               display: "flex",
@@ -135,17 +135,6 @@ const ProductTemplate = ({ data, location }) => {
             <h2 style={{ color: "#FFF", marginBottom: 0 }}>
               {data.prismicProducts.data.product_title.text}
             </h2>
-            {data.prismicProducts.data.product_discount_price && (
-              <p
-                style={{
-                  marginBottom: 0,
-                  color: "#FFF",
-                  fontWeight: "bold",
-                }}
-              >
-                -{data.prismicProducts.data.product_discount_price}%
-              </p>
-            )}
           </div>
           <div style={{ display: "flex" }}>
             
@@ -168,7 +157,8 @@ const ProductTemplate = ({ data, location }) => {
             <SnipcartBtn
               itemId={data.prismicProducts.data.product_id}
               itemPrice={data.prismicProducts.data.product_price}
-              itemUrl={`/${data.prismicProducts.data.product_category.uid}/${data.prismicProducts.uid}`}
+              itemUrl={`/shop/${data.prismicProducts.uid}`}
+              // itemUrl={`/${data.prismicProducts.data.product_category.uid}/${data.prismicProducts.uid}`}
               itemDescription={
                 data.prismicProducts.data.product_description.text
               }
@@ -177,24 +167,24 @@ const ProductTemplate = ({ data, location }) => {
                   .localFile.childImageSharp.fluid.src
               }
               itemName={data.prismicProducts.data.product_title.text}
-              customOptions={createStringVariants(
-                data.prismicProducts.data.product_price,
-              )}
-              customValue={customValue}
+              // customOptions={createStringVariants(
+              //   data.prismicProducts.data.product_price,
+              // )}
+              // customValue={customValue}
               // qty={qty}
             >
               Add to Cart
             </SnipcartBtn>
           )}
 
-          {/* <ul style={{ marginTop: 16 }}>
-            <li>Free Return</li>
+          <ul style={{ marginTop: 16 }}>
+            <li>No Returns</li>
             <li>Secure Payments</li>
             <li>Free Shipping</li>
-          </ul> */}
+          </ul>
         </div>
       </ProductGrid>
-      <RecommendedProducts products={data.allPrismicProducts} />
+      {/* <RecommendedProducts products={data.allPrismicProducts} /> */}
     </Layout>
   )
 }
@@ -242,6 +232,7 @@ export const pageQuery = graphql`
                   childImageSharp {
                     fixed(width: 50) {
                       ...GatsbyImageSharpFixed
+                      src
                     }
                   }
                 }

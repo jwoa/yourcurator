@@ -4,7 +4,6 @@ import styled from "styled-components"
 const Container = styled.div`
   border-radius: 4px;
   border: 1px solid #d1d0d1;
-  box-shadow: 0px 4px 40px rgba(218, 218, 218, 0.5);
   padding: 16px;
 
   margin-bottom: 24px;

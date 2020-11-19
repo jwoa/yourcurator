@@ -5,7 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context"
-import HeaderPromotionBar from "./headerPromotionBar/index"
+// import HeaderPromotionBar from "./headerPromotionBar/index"
 
 const Navigation = styled.div`
   display: inline-block;
@@ -72,7 +72,7 @@ const Header = ({ siteTitle }) => {
             }}
           >
             {/* {siteTitle} */}
-            <img src="https://yourcurator.shop/assets/images/logo.png" width="200px" style={{marginBottom: 0}}/>
+            <img src="https://yourcurator.shop/assets/images/logo.png" width="200px" style={{marginBottom: 0}} alt="Your Curator" />
           </Link>
         {/* </h1> */}
         {/* <Search /> */}
